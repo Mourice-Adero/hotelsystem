@@ -1,0 +1,211 @@
+.banner {
+    height: 50vh;
+    background: grey;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.banner .banner-text h2 {
+    letter-spacing: 20px;
+    font-weight: 900;
+    color: #ffce14;
+    font-size: 1.3em;
+    font-family: 'Oswald', sans-serif;
+    margin-bottom: 5px;
+}
+.banner .banner-text h3 {
+    letter-spacing: 10px;
+    margin-bottom: 4px;
+}
+.banner .banner-text p{
+    letter-spacing: 8px;
+    color: #ffce14;
+    margin-bottom: 4px;
+}
+.banner .learn-more button {
+    margin: 5px;
+    padding: 10px 3em;
+    color: #fff;
+    background: #0f2453;
+    border: 2px solid #fff;
+}
+.ribbon {
+    width: 100%;
+    height: 10vh;
+    background: #ffce14;
+    padding: 10px;
+}
+.ribbon h3 {
+    margin-top: 10px;
+    text-align: center;
+    color: #fff;
+}
+.welcome {
+    height: fit-content;
+}
+.welcome .welcome-head {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 3em;
+}
+.welcome .welcome-head h4 {
+    color: #c79f07;
+    margin: 10px;
+}
+.welcome .welcome-body {
+    display: flex;
+    padding: 20px;
+}
+.welcome .welcome-body .feature {
+    background: rgba(52, 74, 113, 0.09);
+    padding: 1.5em;
+    height: 200px;
+    width: 200px;
+}
+.welcome .welcome-body .feature div {
+    height: 60%;
+    border-bottom:solid 4px #ffce14;
+    margin-bottom: 10px;
+}
+.about {
+    background: rgba(52, 74, 113, 0.09);
+}
+.about .about-txt {
+    padding: 5em;
+}
+.about .about-txt h3 {
+    letter-spacing: 5px;
+    text-align: center;
+    padding: 1em;
+}
+.about .about-txt p {
+    text-align: center;
+    line-height: 1.8em;
+}
+.services {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(27, 33, 43, 0.09);
+}
+.services .service {
+    background: rgba(0, 0, 0, 0.616);
+    padding: 3em; 
+}
+.services .service div,
+.services .service h4 {
+    text-align: center;
+}
+.gallery {
+    padding-top: 3em;
+    text-align: center;
+}
+.gallery .gallery-container {
+    display: flex;
+}
+.gallery .gallery-container img {
+    height: 400px;
+    width: 300px;
+}
+.rooms {
+    padding: 20px;
+}
+.rooms .cartegories {
+    display: flex;
+    justify-content: center;
+}
+.rooms .cartegory {
+    height: 250px;
+    width: 200px;
+    margin: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.rooms .view-rooms{
+    height: 50px;
+    padding: 30px;
+    width: 100%;
+}
+.rooms .view-rooms a{
+    text-decoration: none;
+    padding: 15px;
+    width: 200px;
+    background: #0f2453;
+    color: #fff;
+}
+.team {
+    text-align: center;
+    padding: 20px;
+}
+.team .team-container ul {
+    display: flex;
+    list-style: none;
+}
+.team .team-container ul li {
+    margin: 10px;
+}
+.team .team-container ul li img {
+    border-radius: 50%;
+}
+.team .team-container .member-details {
+    display: flex;
+    height: 200px;
+}
+.team .team-container .member-details img {
+    width: 50%;
+}
+.contact-us {
+    text-align: center;
+    padding: 20px;
+}
+.contact-us .contact-form {
+    padding: 20px;
+    width: auto;
+}
+.contact-us .contact-form .mail-form,
+.contact-us .contact-form .connect {
+    background: rgba(0, 0, 0, 0.733);
+    padding: 20px;
+    margin-bottom: 10px;
+    color: #fff;
+    line-height: 1.5rem;
+}
+.contact-us .contact-form .mail-form h4 {
+    margin: 10px;
+}
+.contact-us .contact-form .mail-form form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 5px 20px;
+    text-align: left;
+}
+.contact-us .contact-form .mail-form form input,
+.contact-us .contact-form .mail-form form label {
+    width: 60%;
+    margin-bottom: 5px;
+    padding: 5px;
+}
+.contact-us .contact-form .mail-form form #sendnow {
+    width: fit-content;
+    padding: 8px;
+    margin: 10px;
+    color: #fff;
+    background: blue;
+    border-style: none;
+    border-radius: 10px;
+}
+.contact-us .contact-form .connect p {
+    text-align: left;
+    margin-left: 20%;
+}
+.contact-us .contact-form .connect span {
+    color: #ffce14;
+}

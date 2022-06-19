@@ -1,0 +1,40 @@
+.room-container {
+    height: 70vh;
+    padding: 20px;
+}
+.room-container h2 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+.room-container form .inputs {
+    display: flex;
+    justify-content: center;
+    width: 70%;
+}
+.room-container form .inputs div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.room-container form label {
+    width: 80px;
+    color: black;
+    padding: 3px;
+}
+.room-container form select,
+.room-container form input {
+    width: 100%;
+    padding: 5px;
+}
+.btn {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    margin: 10px;
+}
+button {
+    width: 100px;
+    padding: 10px;
+    background: #0f2453;
+    color: #fff;
+}

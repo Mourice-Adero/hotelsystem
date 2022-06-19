@@ -1,0 +1,241 @@
+.selections {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+  justify-content: center;
+}
+.selections a {
+  margin-left: 10px;
+  text-decoration: underline #ffce14 2px;
+  background: #0f2453;
+  color: #fff;
+  padding: 10px;
+}
+.rooms-container {
+  text-align: center;
+  line-height: 2rem;
+}
+.rooms-container h3 {
+  margin-top: 3rem;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #ffce14;
+}
+.rooms-container ul {
+  list-style: none;
+  text-align: left;
+  margin-left: 40%;
+}
+.rooms-container .cartegory {
+  display: flex;
+}
+.rooms {
+  display: flex;
+  flex-wrap: wrap;
+}
+.rooms div {
+  padding: 20px;
+  height: 250px;
+  width: 200px;
+  margin: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.rooms div button {
+  margin: 5px;
+  padding: 1.2em;
+  color: #fff;
+  background: #0f2453;
+  border: 2px solid #fff;
+  text-decoration: underline #ffce14 2px;
+}
+table tbody tr:nth-child(odd) {
+  background: rgb(223, 220, 220);
+}
+.cartegory {
+  display: flex;
+  justify-content: center;
+}
+.selectform-section {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.815);
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+}
+.selectform-section .cnt{
+  background: #fff;
+  padding: 20px;
+  position: relative;
+}
+.selectform-section .cnt .closepopup{
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #0f2453;
+  color: #fff;
+  padding: 2px;
+  text-decoration: none;
+  width: 20px;
+}
+.selectform-section h4 {
+  margin-top: 10px;
+  padding: 5px;
+  text-transform: uppercase;
+  text-decoration: 2px underline #c79f07;
+}
+
+.selectform-section .select-room {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding: 10px;
+}
+
+.selectform-section .select-room label {
+  padding: 0px;
+}
+
+.selectform-section .select-room input,
+.selectform-section .select-room select {
+  padding: 5px;
+}
+
+.selectform-section .select-room button {
+  margin-top: 10px;
+  padding: 1.2em;
+  color: #fff;
+  background: #0f2453;
+  border: 2px solid #fff;
+  text-decoration: underline #ffce14 2px;
+  width: 180px;
+  cursor: pointer;
+}
+.payment {
+  position: relative;
+  border: #0f2453 2px solid;
+  display: flex;
+  justify-content: center;
+  width: fit-content;
+  height: fit-content;
+  margin-top: 20px;
+  padding: 20px;
+}
+.payment .selected-room {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.payment .selected-room a {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 5px;
+  font-size: 1.3rem;
+  background: #0f2453;
+  color: #fff;
+  text-decoration: none;
+}
+.payment .selected-room button {
+  margin: 5px;
+  padding: 1.2em;
+  color: #fff;
+  background: #0f2453;
+  border: 2px solid #fff;
+  text-decoration: underline #ffce14 2px;
+  width: 200px;
+  cursor: pointer;
+}
+.payment h3 {
+  text-align: center;
+  margin-top: 10px;
+}
+.payment table {
+  margin: 15px;
+}
+.payment table th {
+  border-bottom: 2px solid #c79f07;
+  text-align: left;
+  padding-left: 8px;
+}
+.display-rooms table {
+  width: 100%;
+}
+.display-rooms table th {
+  border-bottom: 2px solid #c79f07;
+  text-align: left;
+  padding-left: 8px;
+}
+.display-rooms table td input {
+  border: none;
+  width: 60px;
+  background-color: transparent;
+}
+
+.display-rooms button,
+.mpesa-container .mp-popup form button{
+  margin: 5px;
+  padding: 1.2em;
+  color: #fff;
+  background: #0f2453;
+  border: 2px solid #fff;
+  text-decoration: underline #ffce14 2px;
+  width: 100px;
+  cursor: pointer;
+}
+.py-container {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+}
+.display-rooms .cancel1 {
+  background: crimson;
+  position: absolute;
+  bottom: 20px;
+  right: 0;
+  cursor: pointer;
+}
+.mpesa-container {
+  position: absolute;
+  top: 0;
+  background: rgba(0, 0, 0, 0.692);
+  display: none;
+  justify-content: center;
+  padding-top: 20px;
+  width: 100%;
+  height: 130vh;
+}
+.mpesa-container.is-active {
+  display: flex;
+}
+.mpesa-container .mp-popup {
+  background: #fff;
+  height: fit-content;
+  padding: 20px;
+  margin-top: 20px;
+  position: relative;
+  text-align: center;
+}
+.mpesa-container .mp-popup a {
+  position: absolute;
+  top: -12px;
+  right: -10px;
+  background: #fff;
+  color: black;
+  text-decoration: none;
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.mpesa-container .mp-popup form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 5px;
+}
+.mpesa-container .mp-popup form input {
+  padding: 5px;
+}

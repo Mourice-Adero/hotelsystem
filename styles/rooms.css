@@ -1,0 +1,98 @@
+.selections {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    justify-content: center;
+}
+.selections a {
+    margin-left: 10px;
+    text-decoration: underline #ffce14 2px;
+    background: #0f2453;
+    color: #fff;
+    padding: 10px;
+}
+.rooms-container {
+    text-align: center;
+    line-height: 2rem;
+}
+.rooms-container h3 {
+    margin-top: 3rem;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #ffce14;
+}
+.rooms-container ul {
+    list-style: none;
+    text-align: left;
+    margin-left: 40%;
+}
+.rooms {
+    display: flex;
+    flex-wrap: wrap;
+}
+.rooms div{
+    padding: 20px;
+    height: 250px;
+    width: 200px;
+    margin: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.rooms div button {
+    margin: 5px;
+    padding: 1.2em;
+    color: #fff;
+    background: #0f2453;
+    border: 2px solid #fff;
+    text-decoration: underline #ffce14 2px;
+}
+.payment {
+    position: relative;
+    border: #0f2453 2px solid;
+    display: flex;
+    justify-content: center;
+    width: fit-content;
+}
+.payment .selected-room {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.payment .selected-room a {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 5px;
+    font-size: 1.3rem;
+    background: #0f2453;
+    color: #fff;
+    text-decoration: none;
+}
+.payment .selected-room button {
+    margin: 5px;
+    padding: 1.2em;
+    color: #fff;
+    background: #0f2453;
+    border: 2px solid #fff;
+    text-decoration: underline #ffce14 2px;
+    width: 200px;
+}
+.payment h3 {
+    text-align: center;
+    margin-top: 10px;
+}
+.payment table {
+    margin: 15px;
+}
+.payment table th {
+    border-bottom: 2px solid #c79f07;
+    text-align: left;
+    padding-left: 8px;
+}
+.payment table th {
+    border-bottom: 2px solid #c79f07;
+    text-align: left;
+    padding-left: 8px;
+}
+table tbody tr:nth-child(odd) {
+    background: rgb(223, 220, 220);
+}
