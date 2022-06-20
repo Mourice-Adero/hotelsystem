@@ -31,7 +31,7 @@ if (!empty($_SESSION["id"])) {
       <ul>
         <li><a href="./../home.php">Main Page</a></li>
         <li><a href="./logout.php">Loguot</a></li>
-      </ul> 
+      </ul>
     </nav>
     <div class="toggler"></div>
   </header>
@@ -49,37 +49,36 @@ if (!empty($_SESSION["id"])) {
       <!--Manage admins-->
       <div class="admin-container is-active">
         <h2>Manage Admins</h2>
-        <button>Add Admin</button>
+        <button><a href="./adminadd.php">Add Admin</a></button>
         <table>
+          <?php
+          $sql = "SELECT * FROM admins";
+          $tquery = mysqli_query($connection, $sql);
+          ?>
           <thead>
             <th>ID</th>
             <th>Fist Name</th>
             <th>Last Name</th>
             <th>Email</th>
-            <th>Delete</th>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>Demo1</td>
-              <td>Demo1</td>
-              <td>demo1@gmail.com</td>
-              <td><button>Delete</button></td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Demo2</td>
-              <td>Demo2</td>
-              <td>demo2@gmail.com</td>
-              <td><button>Delete</button></td>
-            </tr>
+            <?php
+            while ($row = mysqli_fetch_array($tquery)) {
+              echo "<tr>
+													<td>" . $row['id'] . "</td>
+													<td>" . $row['firstname'] . "</td>
+													<td>" . $row['lastname'] . "</td>
+													<td>" . $row['email'] . "</td>
+												</tr>";
+            }
+            ?>
           </tbody>
         </table>
       </div>
       <!--Manage rooms-->
       <div class="admin-container">
         <h2>Manage Rooms</h2>
-        <button>Add Room</button>
+        <button><a href="./addrooms.php">Add/Update Room</a></button>
         <table>
           <?php
           $sql = "SELECT * FROM rooms";
@@ -89,11 +88,7 @@ if (!empty($_SESSION["id"])) {
             <th>Room ID</th>
             <th>Type</th>
             <th>Beds</th>
-            <th>No. of Rooms</th>
             <th>Status</th>
-            <th>Price/Day</th>
-            <th>Image</th>
-            <th>Update</th>
           </thead>
           <tbody>
             <?php
@@ -102,83 +97,86 @@ if (!empty($_SESSION["id"])) {
 													<td>" . $row['roomid'] . "</td>
 													<td>" . $row['type'] . "</td>
 													<td>" . $row['beds'] . "</td>
-													<td>" . $row['rooms'] . "</td>
 													<td>" . $row['status'] . "</td>
-													<td>" . $row['price'] . "</td>
-													<td>" . $row['image'] . "</td>
-													<td><button>Delete</button></td>
 												</tr>";
             }
             ?>
           </tbody>
-        </table>  
+        </table>
       </div>
       <!--Manage Bookings-->
       <div class="admin-container">
         <h2>Pending Bookings</h2>
-        <button>Clear Bookings</button>
+        <button type="submit" name="clearbooking">Clear Bookings</button>
+        <?php
+          if(isset($_POST["clearbooking"])) {
+            $clear = "DELETE * FROM bookings";
+            $delclear = mysqli_query($connection,$clear);
+          }
+        ?>
         <table>
+          <?php
+          $sql = "SELECT * FROM bookings";
+          $tquery = mysqli_query($connection, $sql);
+          ?>
           <thead>
-            <th>S.No</th>
-            <th>Fist Name</th>
-            <th>Email</th>
-            <th>Check In</th>
+            <th>Booking ID</th>
+            <th>Customer Name</th>
+            <th>Room ID</th>
+            <th>Type</th>
+            <th>Beds</th>
+            <th>Price</th>
+            <th>Check in</th>
             <th>Check Out</th>
-            <th>Delete</th>
-            <th>Update</th>
+            <th>Duration</th>
+            <th>Total Price</th>
           </thead>
           <tbody>
-            <tr>
-              <td>12</td>
-              <td>Adero</td>
-              <td>adero@gmail.com</td>
-              <td>15/06/2022</td>
-              <td>17th June May 2022</td>
-              <td><button>Delete</button></td>
-              <td><button>Edit</button></td>
-            </tr>
-            <tr>
-              <td>04</td>
-              <td>Mark</td>
-              <td>mark@gmail.com</td>
-              <td>19th June 2022</td>
-              <td>20th June 2022</td>
-              <td><button>Delete</button></td>
-              <td><button>Edit</button></td>
-            </tr>
+            <?php
+            while ($row = mysqli_fetch_array($tquery)) {
+              echo "<tr>
+													<td>" . $row['bookingid'] . "</td>
+													<td>" . $row['customername'] . "</td>
+													<td>" . $row['roomid'] . "</td>
+													<td>" . $row['type'] . "</td>
+													<td>" . $row['beds'] . "</td>
+													<td>" . $row['price'] . "</td>
+													<td>" . $row['checkin'] . "</td>
+													<td>" . $row['checkout'] . "</td>
+													<td>" . $row['duration'] . "</td>
+													<td>" . $row['totalprice'] . "</td>
+												</tr>";
+            }
+            ?>
           </tbody>
         </table>
         <h2>Confirmed Bookings</h2>
-        <button>Clear Bookings</button>
         <table>
+          <?php
+          $sql = "SELECT * FROM confirmedbookings";
+          $tquery = mysqli_query($connection, $sql);
+          ?>
           <thead>
-            <th>S.No</th>
-            <th>Fist Name</th>
-            <th>Email</th>
+            <th>Booking ID</th>
+            <th>Customer Name</th>
+            <th>Phone Number</th>
             <th>Check In</th>
             <th>Check Out</th>
-            <th>Delete</th>
-            <th>Update</th>
+            <th>Total Price</th>
           </thead>
           <tbody>
-            <tr>
-              <td>12</td>
-              <td>Adero</td>
-              <td>adero@gmail.com</td>
-              <td>15/06/2022</td>
-              <td>17th June May 2022</td>
-              <td><button>Delete</button></td>
-              <td><button>Edit</button></td>
-            </tr>
-            <tr>
-              <td>04</td>
-              <td>Mark</td>
-              <td>mark@gmail.com</td>
-              <td>19th June 2022</td>
-              <td>20th June 2022</td>
-              <td><button>Delete</button></td>
-              <td><button>Edit</button></td>
-            </tr>
+            <?php
+            while ($row = mysqli_fetch_array($tquery)) {
+              echo "<tr>
+													<td>" . $row['bookingid'] . "</td>
+													<td>" . $row['customername'] . "</td>
+													<td>" . $row['checkin'] . "</td>
+													<td>" . $row['checkout'] . "</td>
+													<td>" . $row['totalprice'] . "</td>
+													<td>" . $row['phonenumber'] . "</td>
+												</tr>";
+            }
+            ?>
           </tbody>
         </table>
       </div>

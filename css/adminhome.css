@@ -33,6 +33,10 @@
     margin: 8px;
     cursor: pointer;
 }
+.op-container .col-2 .admin-container button a {
+    color: #fff;
+    text-decoration: none;
+}
 .op-container .col-2 .admin-container table {
     margin-bottom: 20px;
 }
