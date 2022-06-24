@@ -78,7 +78,7 @@ if (!empty($_SESSION["id"])) {
       <!--Manage rooms-->
       <div class="admin-container">
         <h2>Manage Rooms</h2>
-        <button><a href="./addrooms.php">Add/Update Room</a></button>
+        <button><a href="./addrooms.php">Add room</a></button>
         <table>
           <?php
           $sql = "SELECT * FROM rooms";
@@ -97,7 +97,7 @@ if (!empty($_SESSION["id"])) {
 													<td>" . $row['roomid'] . "</td>
 													<td>" . $row['type'] . "</td>
 													<td>" . $row['beds'] . "</td>
-													<td>" . $row['status'] . "</td>
+													<td>" . $row['status'] . "</td>                    
 												</tr>";
             }
             ?>
@@ -107,12 +107,12 @@ if (!empty($_SESSION["id"])) {
       <!--Manage Bookings-->
       <div class="admin-container">
         <h2>Pending Bookings</h2>
-        <button type="submit" name="clearbooking">Clear Bookings</button>
+        <form method="post"><button type="submit" name="clearbooking">Clear Pending Bookings</button></form>
         <?php
-          if(isset($_POST["clearbooking"])) {
-            $clear = "DELETE * FROM bookings";
-            $delclear = mysqli_query($connection,$clear);
-          }
+        if (isset($_POST["clearbooking"])) {
+          $clear = mysqli_query($connection,"DELETE FROM bookings");
+          echo "<script>alert('Pending Bookings cleared')</script>";
+        }
         ?>
         <table>
           <?php

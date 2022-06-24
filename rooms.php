@@ -61,11 +61,8 @@ if (!empty($_SESSION["id"])) {
             <th>Room ID</th>
             <th>Type</th>
             <th>Beds</th>
-            <th>No. of Rooms</th>
             <th>Status</th>
-            <th>Price/Day</th>
-            <th>Image</th>
-            <th>Book Room</th>
+
           </thead>
           <tbody>
 
@@ -77,10 +74,7 @@ if (!empty($_SESSION["id"])) {
                           <td class='bookings'><input class='bookinput' type='text' value='" . $row['roomid'] . "'></td>
                           <td class='bookings'><input class='bookinput' type='text' value='" . $row['type'] . "'></td>
                           <td class='bookings'><input class='bookinput' type='text' value='" . $row['beds'] . "'></td>
-                          <td class='bookings'><input class='bookinput' type='text' value='" . $row['rooms'] . "'></td>
                           <td class='bookings'><input class='bookinput' type='text' value='" . $row['status'] . "'></td>
-                          <td class='bookings'><input class='bookinput' type='text' value='" . $row['price'] . "'></td>
-                          <td class='bookings timage'><input type='text' value='" . $row['image'] . "'></td>
 													</form>
 												</tr>";
             }
@@ -112,7 +106,6 @@ if (!empty($_SESSION["id"])) {
         if ($checkin >= $now) {
           if ($checkout >= $checkin) {
             if ($rid == $row['roomid'] && $rtype == $row['type']) {
-              echo "room exists";
               if ($rtype == "Luxery" && ($nbeds == 'Tripple' || $nbeds == "Quad")) {
                 $price = 7500;
               } else if ($rtype == "Luxery" && ($nbeds == "Double" || $nbeds == "Single")) {
@@ -134,19 +127,21 @@ if (!empty($_SESSION["id"])) {
               $squery = "INSERT INTO bookings (bookingid,customername,roomid,type,beds,price,checkin,checkout,duration,totalprice) VALUES ('','$cname','$rid','$rtype','$nbeds','$price','$checkin','$checkout','$duration','$totalprice')";
               $execquery = mysqli_query($connection, $squery);
               if ($execquery) {
-                echo "successful";
+                echo "<script>alert('Booking successful');</script>";
                 header("location: ./payment1.php");
               } else {
-                echo "failed";
+                echo "<script>alert('Booking failed, contact us for help');</script>";
               }
             } else
               echo "<script>alert('room Currently not availlable, Please select the room listed in the rooms section')</script>";
           } else {
-            echo "Wrong check out";
+            echo "<script>alert('Invalid check out date! Date should be after check in date')</script>";
           }
         } else {
-          echo "Wrong check in";
+          echo "<script>alert('You can not book a past date')</script>";
         }
+      } else {
+        echo "<script>alert('System is currently under maintenance, try later')</script>";
       }
     }
     ?>
@@ -178,19 +173,11 @@ if (!empty($_SESSION["id"])) {
           <input type="date" name="checkin" class="form" required>
           <label for="checkout">Check Out</label>
           <input type="date" name="checkout" class="form" required>
-          <label for="price">Price</label>
-          <input type="text" name="price" class="form" value="">
           <button type="submit" name="go-payment" class="form">Proceed to Checkout</button>
         </form>
       </div>
     </div>
     <h3 id="deluxe">Deluxe</h3>
-    <h4>Description</h4>
-    <p>Delux rooms contains:</p>
-    <ul>
-      <li>1 common resting room</li>
-      <li>1 bedroom within</li>
-    </ul>
     <div class="cartegory">
       <div class="display-rooms">
         <table>
@@ -202,11 +189,7 @@ if (!empty($_SESSION["id"])) {
             <th>Room ID</th>
             <th>Type</th>
             <th>Beds</th>
-            <th>No. of Rooms</th>
             <th>Status</th>
-            <th>Price/Day</th>
-            <th>Image</th>
-            <th>Book Room</th>
           </thead>
           <tbody>
 
@@ -218,27 +201,18 @@ if (!empty($_SESSION["id"])) {
   <td class='bookings'><input class='bookinput' type='text' value='" . $row['roomid'] . "'></td>
   <td class='bookings'><input class='bookinput' type='text' value='" . $row['type'] . "'></td>
   <td class='bookings'><input class='bookinput' type='text' value='" . $row['beds'] . "'></td>
-  <td class='bookings'><input class='bookinput' type='text' value='" . $row['rooms'] . "'></td>
   <td class='bookings'><input class='bookinput' type='text' value='" . $row['status'] . "'></td>
-  <td class='bookings'><input class='bookinput' type='text' value='" . $row['price'] . "'></td>
-  <td class='bookings timage'><input type='text' value='" . $row['image'] . "'></td>
   </form>
   </tr>";
             }
             ?>
           </tbody>
         </table>
-        <td><button type='submit' name='book-now'>Book Room</button></td>
+        <button id="book-btn" class="book-btn" onclick="openmodal()">Book Now</button>
       </div>
     </div>
 
     <h3 id="guest-houses">Guest Houses</h3>
-    <h4>Description</h4>
-    <p>Luxury rooms contains:</p>
-    <ul>
-      <li>A common resting room</li>
-      <li>Separate bedrooms within</li>
-    </ul>
     <div class="cartegory">
       <div class="display-rooms">
         <table>
@@ -250,11 +224,7 @@ if (!empty($_SESSION["id"])) {
             <th>Room ID</th>
             <th>Type</th>
             <th>Beds</th>
-            <th>No. of Rooms</th>
             <th>Status</th>
-            <th>Price/Day</th>
-            <th>Image</th>
-            <th>Book Room</th>
           </thead>
           <tbody>
 
@@ -263,28 +233,20 @@ if (!empty($_SESSION["id"])) {
             while ($row = mysqli_fetch_array($tquery)) {
 
               echo "<tr>  <form method='POST'>
-  <td class='bookings'><input class='bookinput' type='text' value='" . $row['roomid'] . "'></td>
+                          <td class='bookings'><input class='bookinput' type='text' value='" . $row['roomid'] . "'></td>
                           <td class='bookings'><input class='bookinput' type='text' value='" . $row['type'] . "'></td>
                           <td class='bookings'><input class='bookinput' type='text' value='" . $row['beds'] . "'></td>
-                          <td class='bookings'><input class='bookinput' type='text' value='" . $row['rooms'] . "'></td>
                           <td class='bookings'><input class='bookinput' type='text' value='" . $row['status'] . "'></td>
-                          <td class='bookings'><input class='bookinput' type='text' value='" . $row['price'] . "'></td>
-                          <td class='bookings timage'><input type='text' value='" . $row['image'] . "'></td>
 													</form>
                           </tr>";
             }
             ?>
           </tbody>
         </table>
-        <td><button type='submit' name='book-now'>Book Room</button></td>
+        <button id="book-btn" class="book-btn" onclick="openmodal()">Book Now</button>
       </div>
     </div>
     <h3 id="single-rooms">Single Rooms</h3>
-    <h4>Description</h4>
-    <p>Sinlge rooms contains:</p>
-    <ul>
-      <li>A single room with 1 or 2 beds</li>
-    </ul>
     <div class="cartegory">
       <div class="display-rooms">
         <table>
@@ -296,11 +258,7 @@ if (!empty($_SESSION["id"])) {
             <th>Room ID</th>
             <th>Type</th>
             <th>Beds</th>
-            <th>No. of Rooms</th>
             <th>Status</th>
-            <th>Price/Day</th>
-            <th>Image</th>
-            <th>Book Room</th>
           </thead>
           <tbody>
 
@@ -309,21 +267,17 @@ if (!empty($_SESSION["id"])) {
             while ($row = mysqli_fetch_array($tquery)) {
 
               echo "<tr>  <form method='POST'>
-  <td class='bookings'><input class='bookinput' type='text' value='" . $row['roomid'] . "'></td>
-  <td class='bookings'><input class='bookinput' type='text' value='" . $row['type'] . "'></td>
-  <td class='bookings'><input class='bookinput' type='text' value='" . $row['beds'] . "'></td>
-  <td class='bookings'><input class='bookinput' type='text' value='" . $row['rooms'] . "'></td>
-  <td class='bookings'><input class='bookinput' type='text' value='" . $row['status'] . "'></td>
-  <td class='bookings'><input class='bookinput' type='text' value='" . $row['price'] . "'></td>
-                          <td class='bookings timage'><input type='text' value='" . $row['image'] . "'></td>
+                            <td class='bookings'><input class='bookinput' type='text' value='" . $row['roomid'] . "'></td>
+                            <td class='bookings'><input class='bookinput' type='text' value='" . $row['type'] . "'></td>
+                            <td class='bookings'><input class='bookinput' type='text' value='" . $row['beds'] . "'></td>
+                            <td class='bookings'><input class='bookinput' type='text' value='" . $row['status'] . "'></td>
 													</form>
-                          </tr>";
+                    </tr>";
             }
             ?>
           </tbody>
         </table>
-        <td><button type='submit' name='book-now'>Book Room</button></td>
-
+        <button id="book-btn" class="book-btn" onclick="openmodal()">Book Now</button>
       </div>
     </div>
   </div>

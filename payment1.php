@@ -47,7 +47,7 @@ if (!empty($_SESSION["id"])) {
           echo $useremail;
           ?>
           <?php
-          $sql = "SELECT * FROM bookings WHERE customername='$useremail'";
+          $sql = "SELECT * FROM bookings WHERE customername='$useremail' && confirmed='no'";
           $tquery = mysqli_query($connection, $sql);
           ?>
           <thead>
@@ -63,9 +63,10 @@ if (!empty($_SESSION["id"])) {
           <tbody>
 
             <?php
-
+            if($row = mysqli_fetch_array($tquery)){
+              $bkid = $row['bookingid'];
+            }
             while ($row = mysqli_fetch_array($tquery)) {
-
               echo "<tr>  <form method='POST'>
                           <td class='bookings'>" . $row['bookingid'] . "</td>
                           <td class='bookings'>" . $row['roomid'] . "</td>
@@ -83,7 +84,15 @@ if (!empty($_SESSION["id"])) {
         </table>
         <button onclick="openmpesa()">Pay with Mpesa</button>
         <button>Pay with Paypal</button>
-        <button type="submit" name="cancelbooking" class="cancel1">Cancel, Back to Rooms</button>
+        <form method="POST"><button type="submit" name="cancelbooking" class="cancel1">Cancel</button></form>
+        <?php
+          if(isset($_POST["cancelbooking"])) {
+            $delquery = "DELETE FROM bookings WHERE bookingid='$bkid'";
+            $del = mysqli_query($connection,$delquery);
+            echo "<script>alert('Booking canlcelled')</script>";
+            header("location: ./rooms.php");
+          }
+        ?>
       </div>
     </div>
   </div>
