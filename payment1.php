@@ -65,6 +65,7 @@ if (!empty($_SESSION["id"])) {
             <?php
             if($row = mysqli_fetch_array($tquery)){
               $bkid = $row['bookingid'];
+              $amount = $row['price'];
             }
             while ($row = mysqli_fetch_array($tquery)) {
               echo "<tr>  <form method='POST'>
@@ -104,7 +105,9 @@ if (!empty($_SESSION["id"])) {
       <h3>Mpesa SDK Push</h3>
       <form action="" method="POST">
         <label for="phonenumber">Phone Number:</label>
-        <input type="text" required>
+        <input name="Phonenumber" type="text" required value="+254">
+        <label for="amount">Ksh:</label>
+        <input name="amount" type="text" value="<?php $row['price']; ?>">
         <button type="submit" name="sdk-push">Pay</button>
       </form>
     </div>
@@ -123,7 +126,7 @@ if (!empty($_SESSION["id"])) {
     <h2>Up</h2>
   </a>
   <script src="./javscript/scrollup.js"></script>
-  <script src="./javscript/modal1.js" defer></script>
+  <script src="./javscript/modals.js" defer></script>
 </body>
 
 </html>

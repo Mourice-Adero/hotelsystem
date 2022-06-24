@@ -99,7 +99,7 @@ if (!empty($_SESSION["id"])) {
       $price = "";
       $cname = $useremail;
       $now = date('y/m/d');
-      $sql = "SELECT * FROM rooms WHERE type='Luxery' AND status='Available'";
+      $sql = "SELECT * FROM rooms WHERE type='$rtype' AND status='Available'";
       $tquery = mysqli_query($connection, $sql);
       $row = mysqli_fetch_array($tquery);
       if (mysqli_query($connection, $sql)) {
@@ -198,11 +198,11 @@ if (!empty($_SESSION["id"])) {
             while ($row = mysqli_fetch_array($tquery)) {
 
               echo "<tr>  <form method='POST'>
-  <td class='bookings'><input class='bookinput' type='text' value='" . $row['roomid'] . "'></td>
-  <td class='bookings'><input class='bookinput' type='text' value='" . $row['type'] . "'></td>
-  <td class='bookings'><input class='bookinput' type='text' value='" . $row['beds'] . "'></td>
-  <td class='bookings'><input class='bookinput' type='text' value='" . $row['status'] . "'></td>
-  </form>
+              <td class='bookings'><input class='bookinput' type='text' value='" . $row['roomid'] . "'></td>
+              <td class='bookings'><input class='bookinput' type='text' value='" . $row['type'] . "'></td>
+              <td class='bookings'><input class='bookinput' type='text' value='" . $row['beds'] . "'></td>
+              <td class='bookings'><input class='bookinput' type='text' value='" . $row['status'] . "'></td>
+              </form>
   </tr>";
             }
             ?>
